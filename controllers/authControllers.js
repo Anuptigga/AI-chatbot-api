@@ -26,11 +26,11 @@ export const login=async(req,res)=>{
         const {email,password}=req.body
         const user= await User.findOne({email})
         if(!user){
-            return res.stauts(400).json({message:"User not found"})
+            return res.status(400).json({message:"User not found"})
         }
         const isMatch= await user.comparePassword(password)
         if(!isMatch){
-            return res.stauts(400).json({message:"Invalid credentials"})
+            return res.status(400).json({message:"Invalid credentials"})
         }
         const token=generateToken(user._id);
         res.status(200).json({message:'Login successful',token})
