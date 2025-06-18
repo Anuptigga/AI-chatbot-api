@@ -7,7 +7,12 @@ import aiRoute from "./routes/aiRoutes.js"
 import chatRoute from"./routes/chatRoutes.js"
 
 const app=express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 app.use(express.json())
 
 dbConnect();

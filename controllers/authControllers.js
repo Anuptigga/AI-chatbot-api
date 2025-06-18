@@ -13,7 +13,7 @@ export const signup=async(req,res)=>{
         const user= new User({name,email,password})
         await user.save();
         const token = generateToken(user._id);
-        res.status(200).json({message:"SignUp Successfull", token})
+        res.status(200).json({message:"SignUp Successfull", token,user:{name:user.name}})
     } catch (error) {
         res.status(500).json({message:"Error signing up",error:error.message})
     }
@@ -33,7 +33,7 @@ export const login=async(req,res)=>{
             return res.status(400).json({message:"Invalid credentials"})
         }
         const token=generateToken(user._id);
-        res.status(200).json({message:'Login successful',token})
+        res.status(200).json({message:'Login successful',token, user:{name:user.name}})
     } catch (error) {
       res.status(500).json({message:"Login failed",error:error.message})  
     }
