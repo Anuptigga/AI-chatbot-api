@@ -10,7 +10,10 @@ import adminRoute from "./routes/admin.js"
 const app=express();
 app.use(
   cors({
-    origin:"*",
+    origin: [
+      "http://localhost:5173",
+      "https://ai-chatbot-client-70xea8cty-anup-tiggas-projects.vercel.app",
+    ],
     credentials: true,
   })
 );
