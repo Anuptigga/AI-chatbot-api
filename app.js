@@ -12,7 +12,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://ai-chatbot-client-70xea8cty-anup-tiggas-projects.vercel.app",
+      "https://ai-chatbot-client-ten.vercel.app",
     ],
     credentials: true,
   })
